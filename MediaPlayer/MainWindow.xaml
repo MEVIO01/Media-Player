@@ -7,18 +7,16 @@
         xmlns:wpf="clr-namespace:Vlc.DotNet.Wpf;assembly=Vlc.DotNet.Wpf"
         mc:Ignorable="d"
         Title="Media Player" Height="600" Width="Auto">
-    <Border Background="DarkCyan" BorderBrush="Black" BorderThickness="2" Padding="15">
+    <Border Background="DarkCyan" Padding="15">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+            </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
@@ -27,15 +25,15 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <ContentControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6"  Name="ControlContainer">
+        <ContentControl Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8"  Name="ControlContainer">
         </ContentControl>
-
-            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0"  Grid.Row="1" Grid.Column="0" Click="OnPlayButtonClick">Play</Button>
-            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="1" Grid.Column="1" Click="OnStopButtonClick">Stop</Button>
-            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="1" Grid.Column="2" Click="OnForwardButtonClick" x:Name="Forward">Forward</Button>
-            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="1" Grid.Column="3" Click="GetLength_Click" x:Name="GetLength">Get Length</Button>
-            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="1" Grid.Column="4" Click="GetCurrentTime_Click" x:Name="GetCurrentTime">Get Current Time</Button>
-            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="1" Grid.Column="5" Click="SetCurrentTime_Click" x:Name="SetCurrentTime">Set Current Time to 5s</Button>
+            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0"  Grid.Row="2" Grid.Column="0" Click="OnOpenFileClick">Open File</Button>
+            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0"  Grid.Row="2" Grid.Column="2" Click="OnPlayButtonClick">Play</Button>
+            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="2" Grid.Column="3" Click="OnStopButtonClick">Stop</Button>
+            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="2" Grid.Column="4" Click="OnForwardButtonClick" x:Name="Forward">Forward</Button>
+            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="2" Grid.Column="5" Click="GetLength_Click" x:Name="GetLength">Get Length</Button>
+            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="2" Grid.Column="6" Click="GetCurrentTime_Click" x:Name="GetCurrentTime">Get Current Time</Button>
+            <Button Padding="10" Background="White" FontFamily="Arial" FontSize="24.0" Grid.Row="2" Grid.Column="7" Click="SetCurrentTime_Click" x:Name="SetCurrentTime">Set Current Time to 5s</Button>
     </Grid>
     </Border>
 </Window>

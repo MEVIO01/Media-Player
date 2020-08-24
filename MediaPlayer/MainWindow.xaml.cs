@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -26,6 +27,7 @@ namespace MediaPlayer
     {
         private readonly DirectoryInfo vlcLibDirectory;
         private VlcControl control;
+        private string filePath;
         public MainWindow()
         {
             InitializeComponent(); 
@@ -38,6 +40,22 @@ namespace MediaPlayer
         {
             this.control?.Dispose();
             base.OnClosing(e);
+        }
+        private string GetFileLocation()
+        {
+            var openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                return openFileDialog.FileName;
+            }
+            else
+            {
+                return "";
+            }
+        }
+        private void OnOpenFileClick(object sender, RoutedEventArgs e)
+        {
+            this.filePath = this.GetFileLocation();
         }
 
         private void OnPlayButtonClick(object sender, RoutedEventArgs e)
@@ -53,8 +71,11 @@ namespace MediaPlayer
                 string message = $"libVlc : {args.Level} {args.Message} @ {args.Module}";
                 System.Diagnostics.Debug.WriteLine(message);
             };
-
-            control.SourceProvider.MediaPlayer.Play(new Uri(@"D:\"));
+            if (String.IsNullOrEmpty(this.filePath))
+            {
+                this.filePath = this.GetFileLocation();
+            }
+            control.SourceProvider.MediaPlayer.Play(new Uri(@filePath));
         }
 
         private void OnStopButtonClick(object sender, RoutedEventArgs e)
